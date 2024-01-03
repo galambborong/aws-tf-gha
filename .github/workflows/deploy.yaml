@@ -20,7 +20,7 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
-      - name: Initialise and validate
+      - name: Initialise
         id: init
         run: |
           terraform fmt
