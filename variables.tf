@@ -6,3 +6,7 @@ variable "bucket_name" {
 variable "snd_bucket_name" {
   type = string
 }
+
+variable "third_bucket_name" {
+  description = "desc"
+}

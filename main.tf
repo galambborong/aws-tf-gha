@@ -31,3 +31,12 @@ resource "aws_s3_bucket" "example_two" {
     Environment = "pk-test"
   }
 }
+
+resource "aws_s3_bucket" "third_bucket" {
+  bucket = var.third_bucket_name
+
+  tags = {
+    Name        = "My bucket"
+    Environment = "pk-test"
+  }
+}
