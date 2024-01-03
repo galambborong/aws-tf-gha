@@ -1,0 +1,31 @@
+name: testing-terraform-in-github-actions
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-to-aws:
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
+    steps:
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Terraform Init
+        id: init
+        run: |
+          terraform fmt
+          terraform init -upgrade
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
+        # env:
+        #   TF_VAR_aws_s3_bucket: ${{ secrets.AWS_S3_BUCKET }}
+        #   TF_VAR_aws_region: ${{ secrets.AWS_REGION }}
+        #   TF_VAR_jwtSecret: ${{ secrets.JWT_SECRET }}
