@@ -22,3 +22,12 @@ resource "aws_s3_bucket" "example" {
     Environment = "pk-test"
   }
 }
+
+resource "aws_s3_bucket" "example_two" {
+  bucket = var.snd_bucket_name
+
+  tags = {
+    Name        = "My bucket"
+    Environment = "pk-test"
+  }
+}
