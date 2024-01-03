@@ -10,3 +10,8 @@ variable "snd_bucket_name" {
 variable "third_bucket_name" {
   description = "desc"
 }
+
+variable "env" {
+  type        = string
+  description = "target deployment environment"
+}

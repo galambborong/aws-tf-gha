@@ -15,28 +15,28 @@ terraform {
 }
 
 resource "aws_s3_bucket" "example" {
-  bucket = var.bucket_name
+  bucket = "${var.bucket_name}-${var.env}"
 
   tags = {
-    Name        = "My bucket"
-    Environment = "pk-test"
+    Name        = var.bucket_name
+    Environment = var.env
   }
 }
 
 resource "aws_s3_bucket" "example_two" {
-  bucket = var.snd_bucket_name
+  bucket = "${var.snd_bucket_name}-${var.env}"
 
   tags = {
-    Name        = "My bucket"
-    Environment = "pk-test"
+    Name        = var.snd_bucket_name
+    Environment = var.env
   }
 }
 
 resource "aws_s3_bucket" "third_bucket" {
-  bucket = var.third_bucket_name
+  bucket = "${var.third_bucket_name}-${var.env}"
 
   tags = {
-    Name        = "My bucket"
-    Environment = "pk-test"
+    Name        = var.third_bucket_name
+    Environment = var.env
   }
 }
