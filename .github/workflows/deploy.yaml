@@ -25,7 +25,10 @@ jobs:
         run: |
           terraform fmt
           terraform init -upgrade
-          terraform validate
+
+      - name: Validation
+        id: validate
+        run: terraform validate
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
