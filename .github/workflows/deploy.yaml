@@ -20,11 +20,12 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
-      - name: Terraform Init
+      - name: Initialise and validate
         id: init
         run: |
           terraform fmt
           terraform init -upgrade
+          terraform validate
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
