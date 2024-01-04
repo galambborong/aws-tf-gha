@@ -7,10 +7,10 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "core-tf-state-pk-test"
-    region         = "eu-west-1"
-    key            = "${var.env}/terraform.tfstate"
-    dynamodb_table = "core-tf-lock-dynamo-pk-test-${var.env}"
+    bucket = "core-tf-state-pk-test"
+    region = "eu-west-1"
+    # key            = "${var.env}/terraform.tfstate"
+    # dynamodb_table = "core-tf-lock-dynamo-pk-test-${var.env}"
   }
 }
 
