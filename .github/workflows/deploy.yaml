@@ -26,7 +26,7 @@ jobs:
         id: init
         run: |
           terraform fmt
-          terraform init -upgrade -backend-config="key=${{ vars.ENV }}/" -backend-config="dynamodb_table=core-tf-lock-dynamo-pk-test-${{ vars.ENV }}"
+          terraform init -upgrade -backend-config="key=${{ vars.ENV }}/terraform.tfstate" -backend-config="dynamodb_table=core-tf-lock-dynamo-pk-test-${{ vars.ENV }}"
       - name: Validation
         id: validate
         run: terraform validate
